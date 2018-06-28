@@ -32,6 +32,10 @@ class XWalkCordovaCookieManager implements ICordovaCookieManager {
     public void setCookiesEnabled(boolean accept) {
         cookieManager.setAcceptCookie(accept);
     }
+       
+    public void setAcceptFileSchemeCookies(boolean accept) {
+        cookieManager.setAcceptFileSchemeCookies(accept);
+    }
 
     public void setCookie(final String url, final String value) {
         cookieManager.setCookie(url, value);
