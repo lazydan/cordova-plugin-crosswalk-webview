@@ -164,7 +164,7 @@ cdvPluginPostBuildExtras.add({
 
     dependencies {
 	if(xwalkVersion=="LOCAL_ALL"){
-            implementation files('cordova-plugin-crosswalk-webview/xwalk_core_library-all.aar')
+            implementation files('libs/xwalk_core_library-all.aar')
 	}else{
             implementation xwalkSpec
 	}
