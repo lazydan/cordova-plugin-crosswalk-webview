@@ -24,7 +24,7 @@ def DEFAULT_GROUP_ID = "org.xwalk:"
 def SHARED_ARTIFACT_ID = "xwalk_shared_library:"
 def EMBEDD_ARTIFACT_ID = "xwalk_core_library:"
 def CANARY_ARTIFACT_ID = "xwalk_core_library_canary:"
-def BIT_64 = "-64bit@aar"
+def BIT_64 = "-64bit"
 def DEFAULT_MIN_SDK_VERSION = 14
 
 def getConfigPreference(name) {
