@@ -160,7 +160,8 @@ cdvPluginPostBuildExtras.add({
 
     dependencies {
         if (xwalk64bit != null) {
-            compile group:DEFAULT_GROUP_ID.replace(":",""), name: artifactid.replace(":",""),version:xwalkVersion, classifier:"64bit"
+            implementation xwalkSpec + ":64bit"
+            //compile group:DEFAULT_GROUP_ID.replace(":",""), name: EMBEDD_ARTIFACT_ID.replace(":",""),version:xwalkVersion, classifier:"64bit"
         }else{
             implementation xwalkSpec
         }
