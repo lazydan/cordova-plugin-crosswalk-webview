@@ -187,6 +187,13 @@ module.exports = function(context) {
                 XmlHelpers.graftXML(configXmlRoot, [child], '/*');
                 fs.writeFileSync(projectConfigurationFile, configXmlRoot.write({indent: 4}), 'utf-8');
             }
+        }else{
+            var configXmlRoot = XmlHelpers.parseElementtreeSync(projectConfigurationFile);
+            var child = configXmlRoot.find('./preference[@name="' + xwalk64bit + '"]');
+            if (child) {
+                XmlHelpers.pruneXML(configXmlRoot, [child], '/*');
+                fs.writeFileSync(projectConfigurationFile, configXmlRoot.write({indent: 4}), 'utf-8');
+            }
         }
     }
 
