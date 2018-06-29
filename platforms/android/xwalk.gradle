@@ -24,7 +24,7 @@ def DEFAULT_GROUP_ID = "org.xwalk:"
 def SHARED_ARTIFACT_ID = "xwalk_shared_library:"
 def EMBEDD_ARTIFACT_ID = "xwalk_core_library:"
 def CANARY_ARTIFACT_ID = "xwalk_core_library_canary:"
-def BIT_64 = "-64bit"
+def BIT_64 = ":64bit@arr"
 def DEFAULT_MIN_SDK_VERSION = 14
 
 def getConfigPreference(name) {
@@ -153,13 +153,17 @@ cdvPluginPostBuildExtras.add({
         }
         xwalkSpec = DEFAULT_GROUP_ID + artifactid + xwalkSpec
     }
-    if (xwalk64bit != null) {
-        xwalkSpec = xwalkSpec + BIT_64
-    }
+    //if (xwalk64bit != null) {
+     //   xwalkSpec = xwalkSpec + BIT_64
+    //}
     println xwalkSpec
 
     dependencies {
-        implementation xwalkSpec
+        if (xwalk64bit != null) {
+            implementation xwalkSpec
+        }else{
+            compile group:DEFAULT_GROUP_ID.replace(":",""), name: artifactid.replace(":",""),version:xwalkVersion, classifier:"64bit"
+        }
     }
 
     if (file('assets/xwalk-command-line').exists()) {
